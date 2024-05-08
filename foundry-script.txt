@@ -1,0 +1,3 @@
+anvil --fork-url https://bsc-dataseed.bnbchain.org
+
+cast call 0x4691F60c894d3f16047824004420542E4674E621 "allowance(address,address)(uint256)" 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266 0x70997970C51812dc3A010C7d01b50e0d17dc79C8

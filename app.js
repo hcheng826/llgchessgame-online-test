@@ -25,7 +25,7 @@ fs.readdirSync(__dirname + '/models').forEach(function (file) {
 });
 
 // cors middleware
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
@@ -68,7 +68,7 @@ app.use(passport.session());
 // app.use('/login', login);
 // app.use('/register', register);
 // app.use('/account', account);
-// app.use('/play', play);
+app.use('/play', play);
 // app.use('/api', api);
 app.use('/api', api);
 
@@ -77,7 +77,7 @@ require('./config/errorHandlers.js')(app);
 var server;
 
 if (process.env.APP_ENV == 'development') {
-    server = require('http').createServer(app).listen(8050, function() {
+    server = require('http').createServer(app).listen(8050, function () {
         console.log("server is listening on port 8050")
     });
 } else {
@@ -85,7 +85,7 @@ if (process.env.APP_ENV == 'development') {
         key: fs.readFileSync('./certs/file.pem'),
         cert: fs.readFileSync('./certs/file.crt')
     };
-    server = require('https').createServer(options, app).listen(8050, function() {
+    server = require('https').createServer(options, app).listen(8050, function () {
         console.log("server is listening on the port 8050")
     });
 }
